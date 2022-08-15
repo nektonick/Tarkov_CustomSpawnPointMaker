@@ -5,7 +5,6 @@ import { HttpResponseUtil } from "@spt-aki/utils/HttpResponseUtil";
 
 import { Logger } from "./Logger";
 import config from "../config/config.json";
-import { LocaleService } from "@spt-aki/services/LocaleService";
 
 export class ClientHandler
 {
@@ -37,7 +36,6 @@ export class ClientHandler
 
     public getMapConfig(): any
     {
-        this.logger.info(this.container.resolve<LocaleService>("LocaleService").getDesiredLocale());
         const databaseServer = this.container.resolve<DatabaseServer>("DatabaseServer");
         const items = databaseServer.getTables().templates.items;
 
