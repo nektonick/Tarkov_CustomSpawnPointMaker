@@ -67,7 +67,7 @@ export class Save
         for (const i in pmcData.Inventory.items)
         {
             const item = pmcData.Inventory.items[i];
-            if (item._tpl === mapKey && item.slotId !== "Hideout")
+            if (item._tpl === mapKey && item.slotId != "hideout")
             {
                 this.logger.debug(`Access key item found: "${item._id}" on pmc inventory, removed...`);
                 if (item?.upd?.StackObjectsCount > 1)

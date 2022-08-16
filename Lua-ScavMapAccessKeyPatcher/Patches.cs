@@ -52,8 +52,11 @@ namespace Lua.ScavMapAccessKeyPatcher
         [PatchPostfix]
         private static void PostfixPatch(RaidSettings ___raidSettings_0)
         {
-            ___raidSettings_0.Side = side;
-            ___raidSettings_0.SelectedLocation.AccessKeys = itemKey;
+            if (___raidSettings_0.Side == ESideType.Pmc && side == ESideType.Savage)
+            {
+                ___raidSettings_0.Side = side;
+                ___raidSettings_0.SelectedLocation.AccessKeys = itemKey;
+            }
         }
         public static string GetMapAccessKey(string map)
         {
