@@ -44,7 +44,7 @@ export class Save
         const profileFile = this.container.resolve<JsonUtil>("JsonUtil").deserialize( this.container.resolve<VFS>("VFS").readFile(`user/profiles/${sessionID}.json`) ); // Cover your eyes
         profile.inraid.location = profileFile.inraid.location; // need to grab from file instead of saveserver, weirdly.
         const locationName = profile.inraid.location.toLowerCase();
-        const mapKey = this.container.resolve<DatabaseServer>("DatabaseServer").getTables()?.locations[locationName]?.base?.AccessKeys[0] || "none";
+        const mapKey = config[locationName].AccessKey || "none";
 
         if (!offraidData.isPlayerScav)
         {
