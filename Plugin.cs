@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -96,7 +96,7 @@ namespace Lua.CustomSpawnPointMaker
             }
 
             // One of the RegisterdPlayers will have the IsYourPlayer flag set, which will be our own Player instance
-            return gameWorld.RegisteredPlayers.Find(p => p.IsYourPlayer);
+            return gameWorld.RegisteredPlayers.Find(p => p.IsYourPlayer) as Player;
         }
     }
 }
