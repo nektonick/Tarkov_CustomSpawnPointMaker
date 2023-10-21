@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -12,9 +12,9 @@ using EFT.UI;
 using EFT.Communications;
 using Aki.Reflection.Utils;
 
-namespace Lua.CustomSpawnPointMaker
+namespace CustomSpawnPointMaker
 {
-    [BepInPlugin("com.Lua.CustomSpawnPointMaker", "Lua-CustomSpawnPointMaker", "2.0.0")]
+    [BepInPlugin("com.nektonick.CustomSpawnPointMaker", "nektonick.CustomSpawnPointMaker", "2.0.0")]
     public class Plugin : BaseUnityPlugin
     {
         private readonly static string folderPath = @"./CustomSpawnPoints";
@@ -38,7 +38,7 @@ namespace Lua.CustomSpawnPointMaker
                     {
                         PreloaderUI.Instance.CloseErrorScreen();
                     }
-                    PreloaderUI.Instance.ShowErrorScreen("Lua-CustomSpawnPointMaker", "You need a spawnpoint outside of the map? :/");
+                    PreloaderUI.Instance.ShowErrorScreen("nektonick.CustomSpawnPointMaker", "You need a spawnpoint outside of the map? :/");
                     return;
                 }
 
@@ -63,7 +63,7 @@ namespace Lua.CustomSpawnPointMaker
                 }
                 var position = localPlayer.Transform.position;
                 var rotation = localPlayer.Transform.rotation.eulerAngles.y;
-                var txt = $"Lua-CustomSpawnPointMaker:\n--------------------\nPosition: [{position.x}, {position.y}, {position.z}]\nRotation: {rotation}\nLocation: {localPlayer.Location}";
+                var txt = $"nektonick.CustomSpawnPointMaker:\n--------------------\nPosition: [{position.x}, {position.y}, {position.z}]\nRotation: {rotation}\nLocation: {localPlayer.Location}";
                 Logger.LogInfo(txt);
                 if (displayMessageNotification != null)
                 {
